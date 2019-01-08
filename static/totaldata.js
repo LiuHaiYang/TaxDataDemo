@@ -1,8 +1,9 @@
 $('#totaldata').on('click' ,function (){
+    alert("稍等～～合并结束会有提示！")
     $.get('/api/v1/data',function (data) {
         if (data['code'] == 200){
             $('#content').append("<div style=\"display: none;\" id='filename'>"+data['filename']+"</div>");
-            alert("合成成功，请下载！");
+            alert("合并成功，请点击Export下载！");
         }else{
             alert(data['message']);
         }
