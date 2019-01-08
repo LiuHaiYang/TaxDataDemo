@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f21c6512-e9b9-48ae-bf49-c79c812ee31b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/easyUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/easyUpload.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/zzk_SB$zzk_SB.coverage" NAME="zzk_SB Coverage Results" MODIFIED="1546938122598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/zzk_SB$zzk_SB.coverage" NAME="zzk_SB Coverage Results" MODIFIED="1546951374529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-482328664">
@@ -27,21 +28,21 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="html" value="4" />
-          <entry key="js" value="2" />
+          <entry key="js" value="3" />
           <entry key="less" value="1" />
           <entry key="md" value="2" />
           <entry key="py" value="2" />
-          <entry key="txt" value="1" />
+          <entry key="txt" value="2" />
           <entry key="url" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="4" />
-          <entry key="JavaScript" value="2" />
+          <entry key="JavaScript" value="3" />
           <entry key="Less" value="1" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="Python" value="2" />
         </counts>
       </usages-collector>
@@ -49,7 +50,7 @@
         <counts>
           <entry key="gitignore" value="14" />
           <entry key="html" value="288" />
-          <entry key="js" value="348" />
+          <entry key="js" value="357" />
           <entry key="md" value="37" />
           <entry key="py" value="821" />
         </counts>
@@ -57,7 +58,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="288" />
-          <entry key="JavaScript" value="348" />
+          <entry key="JavaScript" value="357" />
           <entry key="Markdown" value="37" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="Python" value="821" />
@@ -67,14 +68,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            <state relative-caret-position="-101">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
-                <marker date="1546941434700" expanded="true" signature="875:2551" ph="..." />
+                <element signature="e#17#102#0" expanded="true" />
+                <marker date="1546941987462" expanded="true" signature="862:2538" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/install.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="13" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -103,10 +114,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="270">
+              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/easyUpload.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="78" column="129" selection-start-line="78" selection-start-column="129" selection-end-line="78" selection-end-column="129" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#76#82#0" expanded="true" />
+                <element signature="e#82#88#0" expanded="true" />
+                <element signature="e#88#94#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,6 +162,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>提示</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -142,12 +174,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/static/index.html" />
-        <option value="$PROJECT_DIR$/static/easyUpload.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/totaldata.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/READEME.md" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/static/easyUpload.js" />
       </list>
     </option>
   </component>
@@ -157,8 +189,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="215" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="1930" />
     <option name="y" value="23" />
     <option name="width" value="1510" />
     <option name="height" value="958" />
@@ -176,6 +208,11 @@
             <path>
               <item name="zzk_SB" type="b2602c69:ProjectViewProjectNode" />
               <item name="zzk_SB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zzk_SB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zzk_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zzk_SB" type="b2602c69:ProjectViewProjectNode" />
@@ -247,15 +284,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="215" y="23" width="1510" height="958" extended-state="0" />
+    <frame x="1680" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28201634" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22044729" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38337183" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3831683" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -264,7 +301,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29099306" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.24950495" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -315,29 +352,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/easyUpload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6224">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/easy-upload.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2170" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="n#style#0;n#button#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/totaldata.js">
@@ -369,10 +386,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state relative-caret-position="-101">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <marker date="1546941434700" expanded="true" signature="875:2551" ph="..." />
+            <element signature="e#17#102#0" expanded="true" />
+            <marker date="1546941987462" expanded="true" signature="862:2538" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/easyUpload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="78" column="129" selection-start-line="78" selection-start-column="129" selection-end-line="78" selection-end-column="129" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#76#82#0" expanded="true" />
+            <element signature="e#82#88#0" expanded="true" />
+            <element signature="e#88#94#0" expanded="true" />
           </folding>
         </state>
       </provider>

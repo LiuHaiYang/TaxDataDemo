@@ -75,8 +75,8 @@ https://github.com/funnyque
           $html += 'class="fileInput" data-count="0" style="display:none;" />';
           $html += '<span class="easy_upload_select noselect">' + option.selectText + '</span>';
           $html += option.multi ? '<span class="easy_upload_head_btn1 noselect">上传</span>' : '';
-          $html += option.multi ? '<span class="easy_upload_head_btn2 noselect">删除</span>' : '';
-          $html += option.multi ? '<i class="easyUploadIcon noselect head_check" data-checked="no">&#xe693;</i>' : '';
+          $html += option.multi ? '<span class="easy_upload_head_btn2 noselect">删除</span> 全选:' : '';
+          $html += option.multi ? '<i class="easyUploadIcon noselect head_check" data-checked="no">&#xe693;</i>&nbsp;&nbsp;&nbsp;' : '';
           $html += option.showNote ? '<span class="easy_upload_note">' + option.note + '</span>' : '';
           $html += '</div>';
           $html += '<ul class="easy_upload_queue"></ul>';

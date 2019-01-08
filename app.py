@@ -7,7 +7,6 @@ from pypinyin import pinyin, lazy_pinyin
 import base64
 import datetime
 import pandas as pd
-import numpy
 
 app = Flask(__name__)
 
