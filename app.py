@@ -34,11 +34,6 @@ def shuiwudata():
             return jsonify({'code':500,'message':'请上传合并数据！'})
     except Exception as e:
         print(e)
-        time_now = datetime.datetime.now()
-        f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
-        datefolder = 'uploadfloder' + str(f_date)
-        newpath = os.path.join(file_dir, datefolder)
-        os.rename(path, newpath)
         return jsonify({'code': 500, 'message': '请上传合并数据！'})
     data_kinds = []
     try:
