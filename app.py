@@ -25,6 +25,8 @@ def hello_world():
 
 @app.route('/api/v1/data',methods=['GET'])
 def shuiwudata():
+    time_now = datetime.datetime.now()
+    f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
     file_dir = os.path.join(basedir, app.config['UPLOAD_FOLDER'])
     datefolder = 'uploadfloder'
     try:
@@ -47,27 +49,29 @@ def shuiwudata():
             data_kinds.append(data_import)
     except Exception as e:
         print(e)
-        time_now = datetime.datetime.now()
-        f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
         datefolder = 'uploadfloder' + str(f_date)
         newpath = os.path.join(file_dir, datefolder)
         os.rename(path, newpath)
         return jsonify({'code':500,'message':'读取表数据错误！'})
     try:
-        re = data_kinds[0]
-        for d in range(len(data_kinds)-1):
-            re = pd.merge(re,data_kinds[d+1], on='纳税人名称',how='outer')
+        if len(data_kinds) ==2:
+            re = pd.merge(data_kinds[0], data_kinds[1], on='纳税人名称', how='outer')
+        elif len(data_kinds) > 2:
+            re = data_kinds[0]
+            for d in range(len(data_kinds)-1):
+                re = pd.merge(re,data_kinds[d+1], on='纳税人名称',how='outer')
+        else:
+            datefolder = 'uploadfloder' + str(f_date)
+            newpath = os.path.join(file_dir, datefolder)
+            os.rename(path, newpath)
+            return jsonify({'code': 500, 'message': '请上传至少两个文件合并！！'})
     except Exception as e:
         print(e)
-        time_now = datetime.datetime.now()
-        f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
         datefolder = 'uploadfloder' + str(f_date)
         newpath = os.path.join(file_dir, datefolder)
         os.rename(path, newpath)
         return  jsonify({'code':500,'message':'合并表数据错误！'})
     # newpath
-    time_now = datetime.datetime.now()
-    f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
     downfolder = 'downfloder/dowm_'+ str(f_date)+'.xls'
     downpath = os.path.join(file_dir, downfolder)
     re.to_excel(downpath)
