@@ -33,6 +33,12 @@ def shuiwudata():
         if files==[]:
             return jsonify({'code':500,'message':'请上传合并数据！'})
     except Exception as e:
+        print(e)
+        time_now = datetime.datetime.now()
+        f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
+        datefolder = 'uploadfloder' + str(f_date)
+        newpath = os.path.join(file_dir, datefolder)
+        os.rename(path, newpath)
         return jsonify({'code': 500, 'message': '请上传合并数据！'})
     data_kinds = []
     try:
@@ -45,12 +51,24 @@ def shuiwudata():
             data_import.rename(columns=columns, inplace=True)
             data_kinds.append(data_import)
     except Exception as e:
+        print(e)
+        time_now = datetime.datetime.now()
+        f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
+        datefolder = 'uploadfloder' + str(f_date)
+        newpath = os.path.join(file_dir, datefolder)
+        os.rename(path, newpath)
         return jsonify({'code':500,'message':'读取表数据错误！'})
     try:
         re = data_kinds[0]
         for d in range(len(data_kinds)-1):
             re = pd.merge(re,data_kinds[d+1], on='纳税人名称',how='outer')
     except Exception as e:
+        print(e)
+        time_now = datetime.datetime.now()
+        f_date = datetime.datetime.strftime(time_now, '%Y%m%d%H%M')
+        datefolder = 'uploadfloder' + str(f_date)
+        newpath = os.path.join(file_dir, datefolder)
+        os.rename(path, newpath)
         return  jsonify({'code':500,'message':'合并表数据错误！'})
     # newpath
     time_now = datetime.datetime.now()
