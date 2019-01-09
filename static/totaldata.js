@@ -14,7 +14,9 @@ $("#export").click(function () {
     console.log(filename);
     if (filename == ''){
         alert("请您上传合并数据后导出！");
+        window.location.replace("http://139.199.113.209/")
     }else{
         window.location.href = '/api/v1/exportdata?filename='+filename;
+        window.location.replace("http://139.199.113.209/")
     }
 });
