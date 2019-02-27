@@ -87,12 +87,22 @@ def shuiwudata():
     datefolder = 'uploadfloder'+ str(f_date)
     newpath = os.path.join(file_dir, datefolder)
     os.rename(path,newpath)
+
+    try:
+        ## 删除上传的文件
+        import shutil
+        shutil.rmtree('./upload/'+f_date)
+    except:
+        print("删除文件失败！")
+
     return jsonify({'code':200,'filename':'dowm_'+f_date})
 
 @app.route("/api/v1/exportdata/", methods=['GET'])
 def download_file():
     filename = request.args.get('filename')
     # directory = os.getcwd('upload/downfloder')  # 假设在当前目录
+
+
     return send_from_directory('upload/downfloder', str(filename)+'.xls', as_attachment=True)
 
 @app.route("/api/v1/exportcleandata/", methods=['GET'])
