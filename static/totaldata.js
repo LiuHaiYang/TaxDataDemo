@@ -15,12 +15,23 @@ $('#dataclean').on('click' ,function (){
     $.get('/api/v1/shouhedata',function (data) {
         if (data['code'] == 200){
             $('#content').append("<div style=\"display: none;\" id='filename'>"+data['filename']+"</div>");
-            alert("合并成功，请点击Export下载清理后的Excel！");
+            alert("已寻找出差异数据，请点击Export下载清理后的Excel！");
         }else{
             alert(data['message']);
         }
     });
 });
+
+$("#exportclean").click(function () {
+    var filename = $('#filename').html();
+    console.log(filename);
+    if (filename == ''){
+        alert("请您上传合并数据后导出！");
+    }else{
+        window.location.href = '/api/v1/exportcleandata?filename='+filename;
+    }
+});
+
 
 $("#export").click(function () {
     var filename = $('#filename').html();

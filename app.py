@@ -95,6 +95,12 @@ def download_file():
     # directory = os.getcwd('upload/downfloder')  # 假设在当前目录
     return send_from_directory('upload/downfloder', str(filename)+'.xls', as_attachment=True)
 
+@app.route("/api/v1/exportcleandata/", methods=['GET'])
+def download_cleanfile():
+    filename = request.args.get('filename')
+    # directory = os.getcwd('upload/downfloder')  # 假设在当前目录
+    return send_from_directory('upload/shouhedown', str(filename), as_attachment=True)
+
 @app.route('/api/file/upload',methods=['POST'])
 def fileupload():
     file_dir = os.path.join(basedir, app.config['UPLOAD_FOLDER'])
@@ -130,11 +136,15 @@ def fileuploadshouhe():
         # fname = secure_filename(f.filename)
         fname = "".join(lazy_pinyin(f.filename))
         print(fname)
-        ext = fname.rsplit('.', 1)[1]  # 获取文件后缀
-        unix_time = int(time.time())
-        new_filename = str(unix_time) + '.' + ext  # 修改了上传的文件名
-        f.save(os.path.join(folder_dir, new_filename))  # 保存文件到upload目录
-        return jsonify({"code": 200, "errmsg": "上传成功",})
+        if 'jibenyiliao' in fname or 'duizhang' in fname:
+            ext = fname.rsplit('.', 1)[1]  # 获取文件后缀
+            unix_time = int(time.time())
+            # new_filename = str(unix_time) + '.' + ext  # 修改了上传的文件名
+            new_filename = fname # 修改了上传的文件名
+            f.save(os.path.join(folder_dir, new_filename))  # 保存文件到upload目录
+            return jsonify({"code": 200, "errmsg": "上传成功",})
+        else:
+            return jsonify({"code":500,"errmsg":"请上传标准文件名文件！"})
 
 @app.route('/api/v1/shouhedata',methods=['GET'])
 def shouhedata():
@@ -148,16 +158,70 @@ def shouhedata():
         if files==[]:
             return jsonify({'code':500,'message':'请上传去重数据！'})
     except Exception as e:
-        print(e)
+        # print(e)
         return jsonify({'code': 500, 'message': '请上传去重数据！'})
-    data_kinds = []
     try:
-        for file in files:  # 遍历文件夹
-            print(file)
+        exitfileyiliao = [ file for file in files if 'yiliao' in file]
+        exitfileduizhang = [ file for file in files if 'duizhang' in file]
+
+        if exitfileyiliao[0]:
+            data_excel1 = './upload/shouhefloder/'+exitfileyiliao[0]
+            e1 = pd.read_excel(data_excel1, skiprows=[0, 1], skipinitialspace=True)
+            # e1 = e1.head(10)
+            drop_rows = []
+            for i, r in e1.iterrows():
+                if "职工大额医疗互助保险" in str(r['征收品目']):
+                    drop_rows.append(i)
+            e3 = e1.drop(drop_rows)
+        else:
+            return jsonify({'code': 500, 'message': '请上传基本医疗表！'})
+
+        if exitfileduizhang[0]:
+            data_excel2 = './upload/shouhefloder/'+exitfileduizhang[0]
+            e2 = pd.read_excel(data_excel2)
+            # e2 = e2.head()
+            drop_rows2 = []
+            for i, r in e2.iterrows():
+                if "职工基本医疗保险" in str(r['险种类型名称']):
+                    pass
+                else:
+                    drop_rows2.append(i)
+            e4 = e2.drop(drop_rows2)
+        else:
+            return jsonify({'code':500,'message':'请上传对账明细！'})
+
+        excelindex = []
+        for i, r in e3.iterrows():
+            for j, d in e4.iterrows():
+                if str(r['纳税人名称']) == str(d['缴费人名称']):
+                    # print(r['纳税人名称'], d['缴费人名称'])
+                    if "个人" in r['征收品目'] and float(r["实缴金额"]) != float(d['单位应缴费额个人部分']):
+                        # print(r['征收品目'], r["实缴金额"], d['单位应缴费额个人部分'])
+                        excelindex.append(str(r['纳税人名称'])+"---单位应缴费额个人")
+
+                    if "单位" in r['征收品目'] and float(r["实缴金额"]) != float(d['单位应缴费额单位部分']):
+                        # print(r['征收品目'], r["实缴金额"], d['单位应缴费额单位部分'])
+                        excelindex.append(str(r['纳税人名称'])+"---单位应缴费单位")
+        # print(excelindex)
+        unix_time = int(time.time())
+        new_filename = str(unix_time) + '.txt'  # 修改了上传的文件名
+        abnormal = './upload/shouhedown/down_'+new_filename
+        fileObject = open(abnormal, 'w')
+        for name in excelindex:
+            fileObject.write(name)
+            fileObject.write('\n')
+        fileObject.close()
     except Exception as e:
         print(e)
 
-    return jsonify({'code':200,'filename':'down_'})
+    try:
+        ## 删除上传的文件
+        import shutil
+        shutil.rmtree('./upload/shouhefloder/')
+    except:
+        print("删除文件失败！")
+
+    return jsonify({'code':200,'filename':'down_'+new_filename})
 
 if __name__ == '__main__':
     app.run(debug=True)
